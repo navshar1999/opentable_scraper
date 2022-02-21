@@ -14,3 +14,21 @@ html = source_code.content
 #create BeautifulSoup object
 soup = BeautifulSoup(html,features="html.parser")
 
+#retrieve restaurant names
+
+def get_open_restaurants():
+    for entry in soup.findAll('span',{'class':'rest-row-name-text'}):
+        name = entry.get_text()
+        print(name)
+
+def get_open_price_points():
+    for entry in soup.findAll('i',{'class':'pricing--the-price'}):
+        price = entry.get_text()
+        print(price.count('$'))
+    
+def get_open_locations(): 
+    for entry in soup.findAll('span',{'class':'rest-row-meta--location rest-row-meta-text sfx1388addContent'}):
+        location = entry.get_text()
+        print(location)
+
+get_open_locations()
