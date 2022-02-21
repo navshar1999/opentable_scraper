@@ -22,7 +22,6 @@ def get_open_restaurants():
     for entry in soup.findAll('span',{'class':'rest-row-name-text'}):
         names.append(entry.get_text())
     return names 
-        
 
 def get_open_price_points():
     prices = []
@@ -30,12 +29,8 @@ def get_open_price_points():
         prices.append(entry.get_text().count('$'))
     return prices 
     
-    
 def get_open_locations(): 
     locations = []
     for entry in soup.findAll('span',{'class':'rest-row-meta--location rest-row-meta-text sfx1388addContent'}):
         locations.append(entry.get_text())
     return locations
-
-
-
